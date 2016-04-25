@@ -1,0 +1,48 @@
+main .error {
+  color: #ff0000; }
+
+main button {
+  width: 100px;
+  height: 25px;
+  background: #ffff00;
+  border: 0px; }
+  main button.disabled {
+    opacity: 0.5; }
+
+main .game-container {
+  display: inline-block; }
+
+main .available-bees {
+  padding: 20px 0;
+  display: inline-block; }
+  main .available-bees li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px; }
+    main .available-bees li.bee-type {
+      width: 200px;
+      padding: 10px 0;
+      float: left;
+      position: relative; }
+      main .available-bees li.bee-type .bee-name {
+        font-weight: bold; }
+      main .available-bees li.bee-type ul {
+        padding: 0px;
+        margin: 0px; }
+
+@keyframes blink {
+  50% {
+    opacity: 0.5; } }
+
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0.5; } }
+        main .available-bees li.bee-type ul li.hit {
+          animation: blink 1s step-start 0s 4;
+          font-weight: bold;
+          -webkit-animation: blink 1s step-start 0s 4; }
+
+main .selection {
+  margin-top: 10px;
+  color: #035B0E;
+  font-weight: bold; }

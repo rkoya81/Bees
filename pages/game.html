@@ -1,0 +1,24 @@
+<main>
+  <h1>The Bee Game</h1>
+  <section ng-show="states.intro">
+    <p>Welcome to the Bee Game, please press start to begin the game.</p>
+    <button ng-click="beginGame()">Start</button>
+  </section>
+
+  <div class="game-container col-md-7" ng-show="states.startGame">
+    <p ng-hide="queenDead">Press the 'Hit Bee' button below to hit a bee.</p>
+    <p ng-show="queenDead" class="error">The queen bee has died, therefore all other bees are dead too. The game will restart in {{countDown}} seconds.</p>
+    <ul class="available-bees">
+      <li ng-repeat="(beeType, value) in availableBees | groupBy: 'beeType'" class="bee-type">
+        <span class="bee-name">{{::beeType}} Bee</span>
+        <ul>
+          <li ng-repeat="availableBees in value" ng-class="{'died': availableBees.life === 0, 'hit': hit === availableBees.beeName }">
+            {{::availableBees.beeName}} - {{availableBees.life}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <button ng-click="hitBee()" ng-disabled="queenDead" ng-class="{'disabled': queenDead}">Hit Bee</button>
+    <div class="selection" ng-show="hit">YOU HIT - {{hit}}!!</div>
+  </div>
+</main>
